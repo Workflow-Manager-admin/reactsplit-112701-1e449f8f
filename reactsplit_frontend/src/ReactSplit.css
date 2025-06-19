@@ -1,0 +1,60 @@
+:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --accent: #6610f2;
+  --light-bg: #f9fbfe;
+  --app-border: #e8eaf7;
+}
+
+.app.light {
+  background: var(--light-bg);
+  color: #222;
+}
+
+.auth-container input,
+input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+  border: 1px solid #dedede;
+  background: #fff;
+  color: #222;
+  font-family: inherit;
+  margin-bottom: 6px;
+}
+.auth-container {
+  border: 1px solid #f0f2fd;
+}
+
+/* Adjust default button for our palette */
+.btn {
+  background: var(--primary);
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 10px 18px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn.active,
+.btn:active, .btn:focus {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-secondary {
+  background: var(--secondary) !important;
+}
+
+.btn-small {
+  padding: 4px 11px;
+  font-size: 14px;
+}
+
+table,
+th, td {
+  background: transparent;
+}
+
+::-webkit-input-placeholder { color: #bfc7cf; }
+::-moz-placeholder { color: #bfc7cf; }
+:-ms-input-placeholder { color: #bfc7cf; }
+::placeholder { color: #bfc7cf; }
