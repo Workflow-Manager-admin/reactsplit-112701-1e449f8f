@@ -89,9 +89,65 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Deployment Guide
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You can deploy ReactSplit to Vercel, Netlify, or any static site host that supports React. The app is ready for one-click deploy.  
+See below for deployment and build steps.
+
+### 1. Environment Variables
+
+Before deploying, ensure you have a `.env` file (never commit secrets!) in your project root. Use `.env.example` as a template and fill in any secrets/keys, such as for Supabase:
+
+```
+REACT_APP_SUPABASE_URL=your-supabase-url
+REACT_APP_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+### 2. Build the Project
+
+Build for production:
+
+```sh
+npm run build
+```
+This produces an optimized `build/` folder for deploy.
+
+### 3. Deploy on Vercel/Netlify
+
+**On Vercel:**
+1. Import your Git repository at [vercel.com](https://vercel.com/).
+2. Set your environment variables (`REACT_APP_SUPABASE_URL`, `REACT_APP_SUPABASE_ANON_KEY`) in the project settings.
+3. The default build command (`npm run build`) and publish directory (`build`) are correct.
+4. Click Deploy.  
+5. After the build finishes, your app will be live!
+
+**On Netlify:**
+1. Connect your Git repo at [netlify.com](https://app.netlify.com/).
+2. In Site Settings > Environment Variables, add the required variables.
+3. Build command: `npm run build`
+4. Publish directory: `build`
+5. Click Deploy Site.
+
+### 4. One-Click Deploy
+
+Both Vercel and Netlify will handle build and deployment from your repo automatically on push. Make sure your `.env` config is set in their dashboards.
+
+### 5. For Local Production Preview
+
+```sh
+npm run build
+# Then use any static server, e.g.:
+npx serve -s build
+```
+
+## Troubleshooting
+
+- If your build fails due to missing environment variables, double-check `.env` setup in your platform's dashboard.
+- All Supabase/API keys must use the `REACT_APP_` prefix to be accessible in React.
+
+### Deployment (see above for in-repo instructions)
+
+Online doc: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify
 
