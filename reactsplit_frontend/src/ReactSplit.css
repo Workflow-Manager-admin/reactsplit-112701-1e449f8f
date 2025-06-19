@@ -4,57 +4,112 @@
   --accent: #6610f2;
   --light-bg: #f9fbfe;
   --app-border: #e8eaf7;
+  --focus-outline: 2px solid var(--accent);
 }
 
+/* base light mode for dashboard */
 .app.light {
   background: var(--light-bg);
   color: #222;
+  min-height: 100vh;
+}
+
+/* Layout and container tweaks */
+.container {
+  background: white;
+  box-shadow: 0 2px 16px -6px #eaeaf2;
+  border-radius: 12px;
+  padding: 36px 28px 32px 28px;
+  margin-top: 24px;
 }
 
 .auth-container input,
 input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
-  border: 1px solid #dedede;
+  border: 1px solid #e0e4ef;
   background: #fff;
   color: #222;
   font-family: inherit;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  padding: 12px 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.15s, box-shadow 0.15s;
+}
+.auth-container input:focus,
+input[type="text"]:focus, input[type="email"]:focus,
+input[type="password"]:focus, input[type="number"]:focus {
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 0 2px #efeaff66;
 }
 .auth-container {
-  border: 1px solid #f0f2fd;
+  border: 1.5px solid #edeffd;
+  border-radius: 10px;
 }
 
-/* Adjust default button for our palette */
 .btn {
   background: var(--primary);
   border-radius: 5px;
   color: #fff;
   font-weight: 600;
   border: none;
-  padding: 10px 18px;
-  margin-bottom: 4px;
+  padding: 10px 20px;
+  margin-bottom: 0;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  outline: none;
+  font-size: 1rem;
 }
+
 .btn.active,
 .btn:active, .btn:focus {
   background: var(--accent);
   color: #fff;
+  box-shadow: 0 0 0 2px #e2d9fe;
 }
 .btn-secondary {
   background: var(--secondary) !important;
+  color: #fff !important;
 }
 
 .btn-small {
-  padding: 4px 11px;
+  padding: 5px 14px;
   font-size: 14px;
 }
 
-table,
-th, td {
-  background: transparent;
+@media (max-width: 600px) {
+  .container {
+    padding: 14px 4vw;
+  }
+  .auth-container {
+    padding: 18px 3vw;
+  }
 }
 
+/* Table styling and zebra rows */
+table {
+  background: #fff;
+  border-radius: 9px;
+  box-shadow: 0 2px 8px -5px #eaeaf7;
+  overflow: hidden;
+}
+th, td {
+  background: transparent;
+  text-align: left;
+}
+tbody tr:nth-child(even) {
+  background: #f5f4fd;
+}
+
+/* Placeholders */
 ::-webkit-input-placeholder { color: #bfc7cf; }
 ::-moz-placeholder { color: #bfc7cf; }
 :-ms-input-placeholder { color: #bfc7cf; }
 ::placeholder { color: #bfc7cf; }
+
+/* Polished focus rings for accessibility */
+.user-is-tabbing .btn:focus,
+.user-is-tabbing input:focus {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}

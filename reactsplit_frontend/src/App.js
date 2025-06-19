@@ -1,6 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-
+import './ReactSplit.css';
+// Accessibility focus ring
+function useA11yFocus(selector = 'button, input, select, textarea, a') {
+  React.useEffect(() => {
+    function handleTab(e) {
+      if (e.key === 'Tab') {
+        document.body.classList.add('user-is-tabbing');
+      }
+    }
+    function handleMouse() {
+      document.body.classList.remove('user-is-tabbing');
+    }
+    window.addEventListener('keydown', handleTab);
+    window.addEventListener('mousedown', handleMouse);
+    return () => {
+      window.removeEventListener('keydown', handleTab);
+      window.removeEventListener('mousedown', handleMouse);
+    };
+  }, [selector]);
+}
 // PUBLIC_INTERFACE
 function mockSupabaseAuth() {
   // Simulate Supabase Auth API for demonstration (replace with your real client + logic)
@@ -135,6 +154,9 @@ const inputStyle = {
 // ------------------------------------------
 
 function App() {
+  // Accessibility hook to show ring only on keyboard tab
+  useA11yFocus();
+
   // State: user, groups, expenses, selected group etc.
   const [user, setUser] = useState(() => auth.getUser());
   // Each group: { id, name, members: [email], expenses: [...] }
