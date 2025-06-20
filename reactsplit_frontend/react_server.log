@@ -7,139 +7,165 @@
 <i> [webpack-dev-server] On Your Network (IPv4): http://172.17.0.2:3000/
 <i> [webpack-dev-server] Content not from webpack is served from './public' directory
 Injecting EditorRootWrapper import: ../.ve/EditorRootWrapper
-asset bundle.js 1.39 MiB [emitted] (name: main)
+asset bundle.js 1.4 MiB [emitted] (name: main)
 asset index.html 1.98 KiB [emitted]
 runtime modules 27.5 KiB 14 modules
 modules by path ./node_modules/ 1.24 MiB 31 modules
-modules by path ./src/ 10.3 KiB
-  modules by path ./src/*.css 7.49 KiB 4 modules
-  modules by path ./src/*.js 2.76 KiB
+modules by path ./src/ 18 KiB
+  modules by path ./src/*.css 12.1 KiB 4 modules
+  modules by path ./src/*.js 5.86 KiB
     ./src/index.js 530 bytes [built] [code generated]
-    ./src/App.js 2.24 KiB [built] [code generated]
+    ./src/App.js 5.34 KiB [built] [code generated]
 modules by path ./.ve/ 15.1 KiB
   modules by path ./.ve/*.js 10.6 KiB 2 modules
   modules by path ./.ve/*.css 2.93 KiB
     ./.ve/EditorOverlay.css 2.25 KiB [built] [code generated]
     ./node_modules/css-loader/dist/cjs.js!./.ve/EditorOverlay.css 697 bytes [built] [code generated]
   ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 1197 ms
+webpack 5.99.9 compiled successfully in 1428 ms
 assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.4 MiB
-  asset bundle.js 1.39 MiB [emitted] (name: main)
-  asset main.cdd5e4b67dccbee0229c.hot-update.js 6.5 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.cdd5e4b67dccbee0229c.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.4 MiB = bundle.js 1.39 MiB main.cdd5e4b67dccbee0229c.hot-update.js 6.5 KiB
-cached modules 1.26 MiB [cached] 41 modules
-runtime modules 27.5 KiB 14 modules
-./src/App.js 3.43 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 105 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.4 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.2093fe269b97f7ef8bc8.hot-update.js 9.07 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.2093fe269b97f7ef8bc8.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.4 MiB = bundle.js 1.4 MiB main.2093fe269b97f7ef8bc8.hot-update.js 9.07 KiB
-cached modules 1.26 MiB [cached] 41 modules
-runtime modules 27.5 KiB 14 modules
-./src/App.js 5.34 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 72 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.4 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.9fec2fe8a357a852c685.hot-update.js 4.8 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.9fec2fe8a357a852c685.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.4 MiB = bundle.js 1.4 MiB main.9fec2fe8a357a852c685.hot-update.js 4.8 KiB
+assets by path *.js 1.43 MiB
+  asset bundle.js 1.41 MiB [emitted] (name: main)
+  asset main.4dad994baba9c657db6e.hot-update.js 20.8 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.4dad994baba9c657db6e.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.43 MiB = bundle.js 1.41 MiB main.4dad994baba9c657db6e.hot-update.js 20.8 KiB
 cached modules 1.27 MiB [cached] 41 modules
 runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 2.33 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 41 ms
+javascript modules 14.3 KiB
+  ./src/App.js 13.8 KiB [built] [code generated]
+  ./src/supabaseClient.js 425 bytes [built] [code generated]
+
+ERROR in ./src/supabaseClient.js 1:0-53
+Module not found: Error: Can't resolve '@supabase/supabase-js' in '/home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/src'
+resolve '@supabase/supabase-js' in '/home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/src'
+  Parsed request is a module
+  using description file: /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/package.json (relative path: ./src)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+      /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/src/node_modules doesn't exist or is not a directory
+      looking for modules in /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules
+        single file module
+          using description file: /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/package.json (relative path: ./node_modules/@supabase/supabase-js)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js.jsx doesn't exist
+        /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js doesn't exist
+      /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/node_modules doesn't exist or is not a directory
+      /home/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+ @ ./src/App.js 3:0-44 20:4-25 35:8-39 59:18-50 67:18-38 80:10-31
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 128 ms
+assets by status 1.41 MiB [cached] 2 assets
+cached modules 1.28 MiB (javascript) 27.5 KiB (runtime) [cached] 57 modules
+
+LOG from webpack.FileSystemInfo
+<w> Managed item /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js isn't a directory or doesn't contain a package.json (see snapshot.managedPaths option)
++ 13 hidden lines
+
+ERROR in ./src/supabaseClient.js 1:0-53
+Module not found: Error: Can't resolve '@supabase/supabase-js' in '/home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/src'
+resolve '@supabase/supabase-js' in '/home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/src'
+  Parsed request is a module
+  using description file: /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/package.json (relative path: ./src)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+      /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/src/node_modules doesn't exist or is not a directory
+      looking for modules in /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules
+        single file module
+          using description file: /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/package.json (relative path: ./node_modules/@supabase/supabase-js)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js is not a file
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js.jsx doesn't exist
+        existing directory /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js
+          using description file: /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/package.json (relative path: ./node_modules/@supabase/supabase-js)
+            using description file: /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/package.json (relative path: ./node_modules/@supabase/supabase-js)
+              no extension
+                Field 'browser' doesn't contain a valid alias configuration
+                /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js is not a file
+              .js
+                Field 'browser' doesn't contain a valid alias configuration
+                /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js.js doesn't exist
+              .jsx
+                Field 'browser' doesn't contain a valid alias configuration
+                /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js.jsx doesn't exist
+              as directory
+                existing directory /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js
+                  using description file: /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/package.json (relative path: ./node_modules/@supabase/supabase-js)
+                    using path: /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js/index
+                      using description file: /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/package.json (relative path: ./node_modules/@supabase/supabase-js/index)
+                        no extension
+                          Field 'browser' doesn't contain a valid alias configuration
+                          /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js/index doesn't exist
+                        .js
+                          Field 'browser' doesn't contain a valid alias configuration
+                          /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js/index.js doesn't exist
+                        .jsx
+                          Field 'browser' doesn't contain a valid alias configuration
+                          /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/reactsplit_frontend/node_modules/@supabase/supabase-js/index.jsx doesn't exist
+      /home/kavia/workspace/code-generation/reactsplit-112701-1e449f8f/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/node_modules doesn't exist or is not a directory
+      /home/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+ @ ./src/App.js 3:0-44 20:4-25 35:8-39 59:18-50 67:18-38 80:10-31
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 26 ms
 assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.4 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.a5d417bd3eed0cfd4be2.hot-update.js 4.84 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.a5d417bd3eed0cfd4be2.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.4 MiB = bundle.js 1.4 MiB main.a5d417bd3eed0cfd4be2.hot-update.js 4.84 KiB
-cached modules 1.27 MiB [cached] 41 modules
+assets by path *.js 2.22 MiB
+  asset bundle.js 1.82 MiB [emitted] (name: main)
+  asset main.27f0880238b73ae25c34.hot-update.js 416 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.27f0880238b73ae25c34.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 2.22 MiB = bundle.js 1.82 MiB main.27f0880238b73ae25c34.hot-update.js 416 KiB
+cached modules 1.28 MiB [cached] 42 modules
 runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 2.37 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 32 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.4 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.ec58ee6bc841711ea5a2.hot-update.js 5.65 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.ec58ee6bc841711ea5a2.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.4 MiB = bundle.js 1.4 MiB main.ec58ee6bc841711ea5a2.hot-update.js 5.65 KiB
-cached modules 1.27 MiB [cached] 41 modules
+orphan modules 409 bytes [orphan] 3 modules
+javascript modules 325 KiB
+  modules by path ./node_modules/@supabase/auth-js/dist/module/ 151 KiB 15 modules
+  modules by path ./node_modules/@supabase/realtime-js/ 63.4 KiB 12 modules
+  modules by path ./node_modules/@supabase/postgrest-js/dist/ 48 KiB 10 modules
+  modules by path ./node_modules/@supabase/storage-js/dist/module/ 37.5 KiB 8 modules
+  modules by path ./node_modules/@supabase/supabase-js/dist/module/ 16.3 KiB 7 modules
+  modules by path ./node_modules/@supabase/functions-js/dist/module/*.js 7.25 KiB
+    ./node_modules/@supabase/functions-js/dist/module/types.js 1.61 KiB [built] [code generated]
+    + 2 modules
+  ./src/supabaseClient.js 425 bytes [code generated]
+  ./node_modules/@supabase/node-fetch/browser.js 740 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 296 ms
+Injecting EditorRootWrapper import: ../.ve/EditorRootWrapper
+assets by path *.js 1.82 MiB
+  asset bundle.js 1.82 MiB [emitted] (name: main)
+  asset main.22e79763c7a510d79053.hot-update.js 854 bytes [emitted] [immutable] [hmr] (name: main)
+asset index.html 1.98 KiB [emitted]
+asset main.22e79763c7a510d79053.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.82 MiB = bundle.js 1.82 MiB main.22e79763c7a510d79053.hot-update.js 854 bytes
+cached modules 1.57 MiB [cached] 96 modules
 runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 3.15 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 29 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.4 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.94bd5304303b28643b15.hot-update.js 5.96 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.94bd5304303b28643b15.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.4 MiB = bundle.js 1.4 MiB main.94bd5304303b28643b15.hot-update.js 5.96 KiB
-cached modules 1.27 MiB [cached] 41 modules
-runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 3.45 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 40 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.4 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.523084af542d3fee7a77.hot-update.js 6.57 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.523084af542d3fee7a77.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.4 MiB = bundle.js 1.4 MiB main.523084af542d3fee7a77.hot-update.js 6.57 KiB
-cached modules 1.27 MiB [cached] 41 modules
-runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 4.04 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 38 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.4 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.15c42f7eb2beabde9d41.hot-update.js 6.91 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.15c42f7eb2beabde9d41.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.4 MiB = bundle.js 1.4 MiB main.15c42f7eb2beabde9d41.hot-update.js 6.91 KiB
-cached modules 1.27 MiB [cached] 41 modules
-runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 4.37 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 29 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.41 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.6c511aec8eb96da75a0e.hot-update.js 7.25 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.6c511aec8eb96da75a0e.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.41 MiB = bundle.js 1.4 MiB main.6c511aec8eb96da75a0e.hot-update.js 7.25 KiB
-cached modules 1.27 MiB [cached] 41 modules
-runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 4.7 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 33 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.41 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.f191962474ee3f7d814a.hot-update.js 7.62 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.f191962474ee3f7d814a.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.41 MiB = bundle.js 1.4 MiB main.f191962474ee3f7d814a.hot-update.js 7.62 KiB
-cached modules 1.27 MiB [cached] 41 modules
-runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 5.05 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 32 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.41 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.aa4fc6cd8a9b0ea41c8c.hot-update.js 8.18 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.aa4fc6cd8a9b0ea41c8c.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.41 MiB = bundle.js 1.4 MiB main.aa4fc6cd8a9b0ea41c8c.hot-update.js 8.18 KiB
-cached modules 1.27 MiB [cached] 41 modules
-runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 5.58 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 26 ms
-assets by status 1.98 KiB [cached] 1 asset
-assets by path *.js 1.41 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.afee66c8273eb56b59be.hot-update.js 9.46 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.afee66c8273eb56b59be.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.41 MiB = bundle.js 1.4 MiB main.afee66c8273eb56b59be.hot-update.js 9.46 KiB
-cached modules 1.27 MiB [cached] 41 modules
-runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 6.83 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 37 ms
+javascript modules 27 KiB
+  modules by path ./src/*.js 14.8 KiB
+    ./src/index.js 530 bytes [built]
+    ./src/App.js 13.8 KiB [built]
+    ./src/supabaseClient.js 425 bytes [built]
+  modules by path ./.ve/ 12.2 KiB
+    ./.ve/EditorRootWrapper.js 2.68 KiB [built]
+    ./.ve/EditorOverlay.jsx 1.58 KiB [built]
+    ./.ve/SidePanel.js 7.93 KiB [built]
+webpack 5.99.9 compiled successfully in 154 ms
