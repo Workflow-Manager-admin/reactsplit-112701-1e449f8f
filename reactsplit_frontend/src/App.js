@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { supabase } from './supabaseClient';
+import SplitTrackDashboard from "./SplitTrackDashboard";
 
 // PUBLIC_INTERFACE
 // Main App component - Now integrates Supabase Auth. Clicking 'Get Started' brings up login/signup.
@@ -66,17 +67,7 @@ function App() {
     setAuthModalOpen(false);
   }
 
-  // A stub for the post-login functional app UI (to be replaced/expanded later)
-  function MainAppArea() {
-    return (
-      <div style={{ marginTop: "120px", textAlign: "center" }}>
-        <h2>Welcome, {user?.email}</h2>
-        <p>You are authenticated via Supabase. The full expense/group management UI would render here.</p>
-        <button className="btn" style={{ marginTop: 20 }} onClick={handleLogout}>Log out</button>
-        {/* TODO: Replace with real dashboard UI */}
-      </div>
-    );
-  }
+  // (Removed misplaced import, as import must only occur at top level)
 
   // Modal for login/signup:
   function AuthModal() {
@@ -206,7 +197,7 @@ function App() {
               {authModalOpen && <AuthModal />}
             </div>
           ) : (
-            <MainAppArea />
+            <SplitTrackDashboard user={user} handleLogout={handleLogout} />
           )}
         </div>
       </main>
