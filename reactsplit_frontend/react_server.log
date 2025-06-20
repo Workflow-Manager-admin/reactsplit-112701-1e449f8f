@@ -34,3 +34,13 @@ cached modules 1.62 MiB [cached] 102 modules
 runtime modules 27.5 KiB 14 modules
 ./src/supabaseClient.js 1.74 KiB [built] [code generated]
 webpack 5.99.9 compiled successfully in 105 ms
+assets by status 1.98 KiB [cached] 1 asset
+assets by path *.js 1.85 MiB
+  asset bundle.js 1.85 MiB [emitted] (name: main)
+  asset main.ec79a08cb8f37718f0b2.hot-update.js 4.39 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.ec79a08cb8f37718f0b2.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.85 MiB = bundle.js 1.85 MiB main.ec79a08cb8f37718f0b2.hot-update.js 4.39 KiB
+cached modules 1.62 MiB [cached] 102 modules
+runtime modules 27.5 KiB 14 modules
+./src/supabaseClient.js 2.82 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 127 ms
