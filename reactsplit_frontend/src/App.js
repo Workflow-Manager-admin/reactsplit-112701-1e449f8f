@@ -52,8 +52,13 @@ function App() {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) setAuthError(error.message);
       } else if (view === 'sign_up') {
-        const { error } = await supabase.auth.signUp({ email, password });
-        if (error) setAuthError(error.message);
+        // Call Supabase signUp API with await and handle response/output correctly
+        const { data, error } = await supabase.auth.signUp({ email, password });
+        if (error) {
+          setAuthError(error.message);
+        } else if (data && data.user && !data.user.confirmed_at) {
+          setAuthError("Signup successful! Please check your email to confirm your account before logging in.");
+        }
       }
     } catch (err) {
       setAuthError('Something went wrong. Please try again.');
