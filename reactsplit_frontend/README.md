@@ -11,6 +11,25 @@ This project provides a minimal React template with a clean, modern UI and minim
 
 ## Important Note: Babel Configuration
 
+---
+
+## Supabase Auth Setup: Allowed URLs (Critical for Signup/Auth)
+
+If you encounter 'failed to fetch' or authentication/signup does not work:
+
+**You MUST add your frontend's URL(s) in the Supabase dashboard:**
+1. Go to [https://app.supabase.com/](https://app.supabase.com/), open your project.
+2. Navigate to **Auth > URL Configuration**
+3. Add the following to BOTH **Allowed Redirect URLs** and **Allowed CORS Origins**:
+    - For development: `http://localhost:3000`
+    - For production: Add your deployed domain, e.g. `https://yourdomain.com`
+4. Click **Save** at the bottom of the page.
+5. Retry the signup or login flow.
+
+If these settings are missing, Supabase will block authentication with 'failed to fetch' in your browser.
+
+---
+
 This project’s `package.json` includes a `babel` section with a plugin:
 
 ```json
