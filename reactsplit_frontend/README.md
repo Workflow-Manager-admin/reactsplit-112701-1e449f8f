@@ -13,20 +13,33 @@ This project provides a minimal React template with a clean, modern UI and minim
 
 ---
 
-## Supabase Auth Setup: Allowed URLs (Critical for Signup/Auth)
+## Supabase Auth Setup: Critical Checklist for Fixing 'failed to fetch' Errors
 
-If you encounter 'failed to fetch' or authentication/signup does not work:
+If you experience signup or login failures, especially "failed to fetch" errors, there is a high chance your Supabase project is not configured to allow requests from your frontend's origin (such as http://localhost:3000 or your deployed domain).
 
-**You MUST add your frontend's URL(s) in the Supabase dashboard:**
-1. Go to [https://app.supabase.com/](https://app.supabase.com/), open your project.
-2. Navigate to **Auth > URL Configuration**
-3. Add the following to BOTH **Allowed Redirect URLs** and **Allowed CORS Origins**:
-    - For development: `http://localhost:3000`
-    - For production: Add your deployed domain, e.g. `https://yourdomain.com`
-4. Click **Save** at the bottom of the page.
-5. Retry the signup or login flow.
+Follow this bulletproof checklist:
 
-If these settings are missing, Supabase will block authentication with 'failed to fetch' in your browser.
+**Supabase Auth URL & CORS Configuration Checklist**
+1. Log in to [https://app.supabase.com/](https://app.supabase.com/) and open your project.
+2. In the left sidebar, navigate to **Auth** → **URL Configuration**.
+3. In BOTH of the following fields, add every URL that may host your front-end:
+    - **Allowed Redirect URLs**
+    - **Allowed CORS Origins**
+4. For local development, be sure to add: `http://localhost:3000`
+5. For every deployment or staging site, add the full URL (including `https://`), e.g. `https://yourdomain.com`
+6. Separate multiple URLs with a comma, no spaces.
+7. Click **Save** at the bottom of the page.
+8. After saving, refresh your web application and try to sign up or log in again.
+
+**Troubleshooting tips:**
+- If you still get "failed to fetch", open your browser's console. Look for CORS, redirect, or network errors.
+- Be certain your Supabase Project URL and anon/public API Key are set correctly in your `.env` or `src/supabaseClient.js`
+- If you've changed your deployed domain, update these settings accordingly in Supabase.
+
+**Why is this required?**
+Supabase blocks auth and API calls from any origin not listed in BOTH settings above for security reasons. Code cannot check these settings automatically; they must be reviewed in the Supabase dashboard.
+
+If these settings are missing or typo'd, authentication will fail with 'failed to fetch'.
 
 ---
 
