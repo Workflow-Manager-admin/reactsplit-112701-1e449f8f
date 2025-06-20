@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "./supabaseClient";
 
 // --- Utility functions for balances ---
+// PUBLIC_INTERFACE
 function calculateBalances(currentUserId, members, expenses, splits) {
   // returns a map user_id -> {name/email, netBalance: number}
   const balances = {};
@@ -33,37 +34,37 @@ function calculateBalances(currentUserId, members, expenses, splits) {
 }
 
 // --- Dashboard Main Component ---
-/*
-  Shows:
-    - List of groups where user is a member
-    - Create new group
-    - Select group -> see members, expenses, add expense, view balance table
-    - Real-time updates via Supabase
-    - All UI styled with Bootstrap or matching plain CSS
-*/
+// PUBLIC_INTERFACE
+/**
+ * SplitTrackDashboard - User dashboard for groups & expenses after login.
+ * @param {object} props
+ * @param {object} props.user - The current authenticated supabase user
+ * @param {function} props.handleLogout - Logout callback
+ */
 function SplitTrackDashboard({ user, handleLogout }) {
+  // ---- State Definitions ----
   const [groups, setGroups] = useState([]);
-  const [groupMembers, setGroupMembers] = useState([]); // All members for selected group
+  const [groupMembers, setGroupMembers] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [splits, setSplits] = useState([]);
   const [selectedGroupId, setSelectedGroupId] = useState("");
   const [loading, setLoading] = useState(false);
+
   const [groupForm, setGroupForm] = useState({ name: "", inviteEmail: "" });
   const [expenseForm, setExpenseForm] = useState({ desc: "", amount: "", forMembers: [] });
   const [error, setError] = useState("");
 
-  // --- Fetch groups where user is a member ---
+  // ---- Fetch User Groups ----
   useEffect(() => {
     async function fetchGroups() {
       setLoading(true);
-      // 1. Find groups where user is a member (via members table)
       let { data: memberRows, error: err1 } = await supabase
         .from("members")
         .select("group_id")
         .eq("user_id", user.id);
       if (err1) { setError("Failed loading groups."); setLoading(false); return; }
       const groupIds = memberRows.map(m => m.group_id);
-      // 2. Get group details
+      if (groupIds.length === 0) { setGroups([]); setLoading(false); return; }
       let { data: groupRows, error: err2 } = await supabase
         .from("groups")
         .select("*")
@@ -75,7 +76,7 @@ function SplitTrackDashboard({ user, handleLogout }) {
     fetchGroups();
   }, [user]);
 
-  // --- Fetch group details (members, expenses, splits) on selected group ---
+  // ---- Fetch Details For Selected Group ----
   useEffect(() => {
     if (!selectedGroupId) return;
     setLoading(true);
@@ -101,10 +102,13 @@ function SplitTrackDashboard({ user, handleLogout }) {
       if (err2) { setError("Could not load expenses."); setLoading(false); return; }
 
       // Splits
-      let { data: splitRows, error: err3 } = await supabase
-        .from("splits")
-        .select("*")
-        .in("expense_id", expenseRows.map(e => e.id));
+      let expenseIds = expenseRows.map(e => e.id);
+      let { data: splitRows, error: err3 } = expenseIds.length > 0
+        ? await supabase
+            .from("splits")
+            .select("*")
+            .in("expense_id", expenseIds)
+        : { data: [], error: null };
       if (err3) { setError("Could not load splits."); setLoading(false); return; }
 
       setGroupMembers(membersWithEmail);
@@ -116,14 +120,9 @@ function SplitTrackDashboard({ user, handleLogout }) {
     fetchAllGroupData();
   }, [selectedGroupId]);
 
-  // --- Real-time subscription hooks for updates (groups/expenses/members/splits) ---
-  // Can optionally add Supabase channel subscriptions for real-time
-  useEffect(() => {
-    // Basic: just refetch on group/expense creation or removal, for now
-    // Could add real-time listeners here
-  }, [selectedGroupId]);
+  // ---- Handlers ----
 
-  // --- Handlers for group creation/join ---
+  // Group Creation
   async function handleCreateGroup(e) {
     e.preventDefault();
     setError("");
@@ -144,7 +143,7 @@ function SplitTrackDashboard({ user, handleLogout }) {
     setLoading(false);
   }
 
-  // --- Invite member by email (adds to members table if user exists) ---
+  // Invite Member by Email
   async function handleInviteMember(e) {
     e.preventDefault();
     setError("");
@@ -174,7 +173,7 @@ function SplitTrackDashboard({ user, handleLogout }) {
     setLoading(false);
   }
 
-  // --- Add new expense to group, assign splits among selected members ---
+  // Add Expense
   async function handleAddExpense(e) {
     e.preventDefault();
     setError("");
@@ -214,7 +213,8 @@ function SplitTrackDashboard({ user, handleLogout }) {
     setSplits(splitRows);
   }
 
-  // --- UI: Groups list ---
+  // ---- UI Subcomponents ----
+
   function GroupsSidebar() {
     return (
       <div className="card bg-dark mb-3" style={{ minWidth: 225, maxWidth: 270, marginBottom: 30, marginRight: 32, flex: "0 0 265px" }}>
@@ -245,7 +245,6 @@ function SplitTrackDashboard({ user, handleLogout }) {
     );
   }
 
-  // --- UI: Main group area (members, expenses, balances) ---
   function GroupMainArea() {
     if (!selectedGroupId) return <div style={{marginTop: 44, textAlign:"center"}}>Select a group to start!</div>;
     // Balances
@@ -290,7 +289,8 @@ function SplitTrackDashboard({ user, handleLogout }) {
                   </small>
                   <div style={{marginLeft:4, fontSize:".96em",color:"#fff7"}}>
                     Split among {splits.filter(s=>s.expense_id===exp.id).length} 
-                    {splits.filter(s=>s.expense_id===exp.id).length === groupMembers.length ? " (all)":""}
+                    {splits.filter(s=>s.expense_id===exp.id).length === groupMembers.length ? " (all)":
+                    ""}
                   </div>
                 </li>
               )}
@@ -385,6 +385,7 @@ function SplitTrackDashboard({ user, handleLogout }) {
     );
   }
 
+  // ---- Main Render ----
   return (
     <div style={{display:"flex", gap: "3.6vw", alignItems:"start", marginTop:44, minHeight: "81vh"}}>
       <GroupsSidebar />
@@ -399,5 +400,5 @@ function SplitTrackDashboard({ user, handleLogout }) {
   );
 }
 
-// PUBLIC_INTERFACE
 export default SplitTrackDashboard;
+
